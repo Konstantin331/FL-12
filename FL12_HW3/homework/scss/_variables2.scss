@@ -1,0 +1,22 @@
+@import "_main";
+
+$btnColorStyle: rgb(225,171,39);
+$bgColorStyle: rgb(59,63,79);
+$gradientStyle: 90deg, rgb(220,162,39), rgb(148,51,80);
+$headerFontFamily: 'Fresca', sans-serif;
+$styledColor: rgb(255,255,255);
+$highlight: rgb(252,79,60);
+
+body{
+   background:rgb(33,35,46);
+}
+.header{
+    @include headerBg(night);
+    @include headerStyle();
+}
+main{
+    @include mainStyle();
+}
+.footer{
+    @include footer();
+}

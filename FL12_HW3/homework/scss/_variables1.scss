@@ -1,0 +1,19 @@
+@import "_main";
+
+$btnColorStyle: rgb(106,152,26);
+$bgColorStyle: rgb(33,35,46);
+$gradientStyle: 90deg, rgb(102,148,31), rgb(49,96,209);
+$headerFontFamily: 'Hind', sans-serif;
+$styledColor: rgb(44,47,60);
+$highlight: rgb(35,160,197);
+
+.header{
+    @include headerBg(day);
+    @include headerStyle();
+}
+main{
+    @include mainStyle(); 
+}
+.footer{
+    @include footer();
+}

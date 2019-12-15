@@ -1,0 +1,241 @@
+$whiteFontColor: rgb(192,195,206);
+$backgrounds: (
+    day: url("../img/m-h-day.jpg"),
+    night: url("../img/m-h-night.jpg")
+);
+* {
+    padding: 0;
+    margin: 0;
+}
+@mixin a {
+    font-family: 'Hind', sans-serif;
+    color: rgb(255,255,255);
+    font-size: 12px;
+}
+@mixin contentText($fSize: 10px, $textColor: $styledColor){
+    color: $textColor;
+    font-size: $fSize;
+    font-family: $headerFontFamily;
+}
+@mixin headerBg($image){
+    background: map-get($backgrounds, $image) no-repeat center;
+    background-size: 100%;
+    border-bottom-right-radius: 450px 180px;
+    color: $styledColor;
+}
+@mixin headerStyle{
+    .header-wrap{
+        padding: 10px 0px 100px 110px;
+        width: 400px;
+        text-align: left;
+        a{
+            @include a();
+        }
+        .landing-logo{
+            @include logo();
+            font-family: $headerFontFamily;
+        }
+        .header_heading{
+            margin: 40px 0px 20px;
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 50px;
+        }
+        .header_text{
+            @include contentText();
+            line-height: 16px;
+            margin: 20px -25px 25px;
+            white-space: pre;
+        }
+        div:not([class]){
+            display: flex;
+            justify-content: space-between;
+            width: 60%;
+        }
+        &:after {
+            font-size: 50px;
+            font-weight: 550;
+            line-height: 35px;
+            font-family: 'Hind', sans-serif;
+            content: "awesome";
+            background-color: $highlight;
+            position: absolute;
+            top: 147px;
+        }
+        .header_button{
+            @include button();
+        }
+    }
+}
+@mixin logo{
+    display: flex;
+    align-items: center;
+    line-height: 15px;
+    img{
+        width: 40px;
+        height: 40px;
+    }
+    p{
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        padding: 5px;
+        span{
+            font-size: 6px;
+            font-weight: lighter;
+            text-align: center;
+        }
+    }
+}
+@mixin button{
+    @include contentText();
+    color: rgb(255,255,255);
+    font-family: 'Hind', sans-serif;
+    background-color: $btnColorStyle;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    font-weight: 600;
+    width: 90px;
+    height: 30px;
+}
+@mixin mainStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .section_card{
+        @include block();
+        .section_card_heading{
+            @include blockHeadings();
+        } 
+    }
+    .section_banner{
+        @include contentText();
+        @include banner();
+        button{
+            @include button();
+        }
+    }  
+    .section_text{
+        color: $styledColor;
+        font-size: 20px;
+        font-weight: 520;
+        margin: 20px 0px 10px 0px;
+    }
+    .section_card_text{
+        color: $whiteFontColor;
+        line-height: 16px;
+    }
+    .section_card_wrap{
+        a{
+            @extend .section_card_text;
+            font-size: 9px;
+        }
+        img {
+            height: 153px;
+            width: 230px;
+            border-radius: 3px;
+        }
+    }
+        .section_card_right_container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 71px;
+    }
+    .section_card_heading, .section_card_text, .section_link{
+        margin-bottom: 10px;
+    }   
+    &:after {
+        font-size: 20px;
+        font-weight: 520;
+        color: #fff;
+        font-family: 'Hind', sans-serif;
+        height: 30px;
+        line-height: 45px;
+        content: "adventure";
+        background-color: $highlight;
+        position: relative;
+        bottom: 628px;
+        left: 53px;
+    }
+}
+@mixin block{
+    @include contentText();
+    background-color: $bgColorStyle;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 655px;
+    height: 160px;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px;
+}
+@mixin blockHeadings{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 12px 0px;
+    padding: 10px;
+}
+@mixin banner{
+    position: absolute;
+    top: 1200px;
+    background: linear-gradient($gradientStyle);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3px;
+    width: 750px;
+    height: 75px;
+    .section_banner_heading{
+        color: $styledColor;
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 7px;
+    }
+    .section_banner_text{
+        color: $whiteFontColor;
+    }
+    &:after {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        font-family: 'Hind', sans-serif;
+        height: 30px;
+        line-height: 45px;
+        content: "start";
+        background-color: $highlight;
+        position: absolute;
+        top: 4px;
+        left: 178px;
+    }
+}
+@mixin footer{
+    background: $bgColorStyle;
+    margin-top: 100px;
+    .footer-wrap{
+        @include contentText(10px, $whiteFontColor);
+        padding-top: 50px;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .footer_text{
+        width: 210px;
+    }
+    .footer_logo{
+        @include logo();
+        color: $whiteFontColor;
+    }
+}
+.header_heading, .section_text, .section_card_heading, .section_banner_heading{
+    font-family: 'Hind', sans-serif;
+}
